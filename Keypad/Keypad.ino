@@ -1,9 +1,10 @@
 #include <Keypad.h>
 #include <stdint.h>
+#include <string.h>
 
 const char correct_password[] = "BACD#5311";
 char entered_password[10];  // Stores the user input -> 9 characters{BACD#5311} + null terminator
-uint8_t currentIndex = 0;
+uint8_t current_index = 0;
 
 const uint8_t ROWS = 4;
 const uint8_t COLS = 4;
@@ -29,29 +30,34 @@ void setup() {
 void loop() {
   char customKey = custom_keypad.getKey();
 
-  if (customKey) {
+  if (customKey) 
+  {
     Serial.print("Key Pressed: ");
     Serial.println(customKey);
 
     // Store the key
-    if (currentIndex < 9) {
-      enteredPass[currentIndex++] = customKey;
+    if (current_index < 9) 
+    {
+      entered_password[current_index++] = customKey;
     }
 
     // When 9 characters are entered
-    if (currentIndex == 9) {
-      enteredPass[9] = '\0';  // Null-terminate
+    if (current_index == 9) 
+    {
+      entered_password[9] = '\0';  // Null-terminate
 
-      if (strcmp(enteredPass, correctPass) == 0) {
+      if (strcmp(entered_password, correct_password) == 0) 
+      {
         Serial.println("Password is correct");
         digitalWrite(13, HIGH);
         delay(1000);
-      } else {
+      } else 
+      {
         Serial.println("Wrong password");
       }
 
       // Reset
-      currentIndex = 0;
+      current_index = 0;
       digitalWrite(13, LOW); // Glow On Board LED to show correct pwd has been entered.
     }
   }
