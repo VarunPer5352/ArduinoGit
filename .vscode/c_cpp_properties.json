@@ -25,7 +25,8 @@
                 "/home/varun/.arduino15/packages/arduino/**",
                 "/home/varun/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino/**",
                 "/home/varun/.arduino15/packages/arduino/hardware/avr/1.8.6/libraries/**",
-                "/home/varun/Arduino/libraries/**"
+                "/home/varun/Arduino/libraries/**",
+                "/home/varun/.arduino15/**"
             ],
             "defines": ["ARDUINO"],
             "compilerPath": "/usr/bin/gcc",
